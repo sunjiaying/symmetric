@@ -1,0 +1,22 @@
+version: '3'
+services:
+  sym:
+    build: .
+    image: symmetric:1.0
+    container_name: "sym"
+    ports:
+      - 31415:31415
+    volumes:
+      - ./conf:/opt/symmetric/conf
+      - ./engines:/opt/symmetric/engines
+      - ./logs:/opt/symmetric/logs
+      - ./tmp:/opt/symmetric/tmp
+    command: ./bin/sym
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+networks:
+  default:
+    external:
+      name: mynetwork
