@@ -1,4 +1,6 @@
-./logs/*
-./tmp/*
-./engines/corp-000.properties
+!logs/
+logs/*
+!tmp/
+tmp/*
+engines/corp-000.properties
 */.DS_Store
